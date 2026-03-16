@@ -1,0 +1,63 @@
+backend:
+  name: netlify
+  # repo: your-github-username/insanasonido  ← fill in after GitHub repo is created
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: events
+    label: Events
+    folder: src/content/events
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Start Time, name: startTime, widget: string, hint: "e.g. 22:00" }
+      - { label: End Time, name: endTime, widget: string, hint: "e.g. 06:00" }
+      - { label: Venue, name: venue, widget: string }
+      - { label: Ticket URL, name: ticketUrl, widget: string }
+      - { label: Cover Image, name: coverImage, widget: image, hint: "Strip EXIF before uploading (use exiftool or similar)" }
+      - { label: Status, name: status, widget: select, options: [upcoming, past] }
+      - { label: Genres, name: genres, widget: list, field: { label: Genre, name: genre, widget: string } }
+      - label: Organizers
+        name: organizers
+        widget: list
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: URL, name: url, widget: string }
+      - label: Ticket Tiers
+        name: ticketTiers
+        widget: list
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Price, name: price, widget: string }
+      - label: Lineup
+        name: lineup
+        widget: list
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Photo, name: image, widget: image, hint: "Strip EXIF before uploading" }
+          - { label: Genres, name: genres, widget: list, field: { label: Genre, name: genre, widget: string } }
+          - { label: Social URL, name: socialUrl, widget: string }
+          - { label: Booked, name: booked, widget: boolean, default: true }
+      - { label: Gallery Images, name: gallery, widget: list, field: { label: Image, name: image, widget: image, hint: "Strip EXIF before uploading" } }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Ticket Button Label, name: ticketButtonLabel, widget: string, default: "Buy Tickets", required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Publish Date, name: publishDate, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Cover Image, name: coverImage, widget: image, hint: "Strip EXIF before uploading (use exiftool or similar)" }
+      - { label: Body, name: body, widget: markdown }
