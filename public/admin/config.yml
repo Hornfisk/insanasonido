@@ -1,6 +1,5 @@
 backend:
   name: git-gateway
-  repo: git@github.com:Hornfisk/insanasonido.git
   branch: main
 
 media_folder: public/images/uploads
