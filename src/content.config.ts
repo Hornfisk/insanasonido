@@ -1,6 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const httpUrl = z.string().url().refine(
+  (url) => url.startsWith('http://') || url.startsWith('https://'),
+  { message: 'URL must use http or https protocol' }
+);
+
 const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: z.object({
@@ -10,17 +15,17 @@ const events = defineCollection({
     startTime: z.string(),
     endTime: z.string(),
     venue: z.string(),
-    ticketUrl: z.string().url(),
+    ticketUrl: httpUrl,
     coverImage: z.string(),
     status: z.enum(['upcoming', 'past']),
     genres: z.string().array(),
-    organizers: z.array(z.object({ name: z.string(), url: z.string() })),
+    organizers: z.array(z.object({ name: z.string(), url: httpUrl })),
     ticketTiers: z.array(z.object({ name: z.string(), price: z.string() })),
     lineup: z.array(z.object({
       name: z.string(),
       image: z.string(),
       genres: z.string().array(),
-      socialUrl: z.string().url(),
+      socialUrl: httpUrl,
       booked: z.boolean(),
     })),
     gallery: z.string().array(),

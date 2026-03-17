@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface EventSchema {
   name: string;
   description: string;
@@ -100,13 +102,13 @@ const websiteLD = !eventSchema ? {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/styles/global.css" />
+
 
     {musicEventLD && (
-      <script type="application/ld+json" set:html={JSON.stringify(musicEventLD)} />
+      <script type="application/ld+json" set:html={JSON.stringify(musicEventLD).replace(/<\//g, '<\\/')} />
     )}
     {websiteLD && (
-      <script type="application/ld+json" set:html={JSON.stringify(websiteLD)} />
+      <script type="application/ld+json" set:html={JSON.stringify(websiteLD).replace(/<\//g, '<\\/')} />
     )}
   </head>
   <body>
