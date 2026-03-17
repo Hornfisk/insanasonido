@@ -1,6 +1,6 @@
 backend:
-  name: netlify
-  # repo: your-github-username/insanasonido  ← fill in after GitHub repo is created
+  name: git-gateway
+  repo: git@github.com:Hornfisk/insanasonido.git
   branch: main
 
 media_folder: public/images/uploads
