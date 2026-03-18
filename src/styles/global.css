@@ -215,7 +215,7 @@ nav {
   text-align: center;
   position: relative;
   padding-bottom: 80px;
-  padding-top: 350px; /* Safe zone for rabbit */
+  padding-top: 220px;
 }
 
 .hero-content {
@@ -225,7 +225,7 @@ nav {
 
 .hero h1 {
   font-family: var(--font-head);
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1;
   margin-bottom: 20px;
@@ -248,10 +248,10 @@ nav {
 */
 .rabbit-icon {
   position: absolute;
-  top: 90px; 
+  top: 90px;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(150px, 20vw, 250px); /* Tighter width */
+  width: clamp(100px, 12vw, 160px);
   height: auto;
   filter: drop-shadow(0 0 15px var(--color-magenta));
   animation: float 4s ease-in-out infinite;
@@ -856,12 +856,12 @@ footer {
 
   .hero {
     min-height: 100svh;
-    padding-top: max(260px, 38vh); /* Clears rabbit + proportional to screen */
+    padding-top: max(180px, 28vh);
     padding-bottom: 5vh;
   }
 
   .rabbit-icon {
-    width: min(130px, 30vw); /* Smaller on mobile, never overflows narrow screens */
+    width: min(90px, 22vw);
   }
 
 }
