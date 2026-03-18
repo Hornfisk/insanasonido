@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 :focus-visible {
@@ -206,10 +207,11 @@ nav {
       ensuring it never overlaps the top 350px where the rabbit lives.
 */
 .hero {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: relative;
   padding-bottom: 80px;
@@ -258,11 +260,13 @@ nav {
 
 /* --- BULLETPROOF MARQUEE --- */
 .marquee-container {
-  width: 100%;
+  position: relative;
+  width: 300%;          /* 3× body width — covers −100vw to +200vw */
+  margin-left: -100%;   /* shift left by 1 body-width to center the stripe */
   overflow: hidden;
   background: var(--color-magenta);
   padding: 15px 0;
-  transform: rotate(-2deg) scale(1.05);
+  transform: rotate(-2deg); /* no scale needed; width handles full coverage */
   border-top: 2px solid var(--color-white);
   border-bottom: 2px solid var(--color-white);
   display: block;
@@ -841,13 +845,23 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  /* Reduce padding on mobile to not waste space */
-  .hero {
-    padding-top: 200px;
+  .section-padding {
+    padding: 60px 0;
   }
-  
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: max(260px, 38vh); /* Clears rabbit + proportional to screen */
+    padding-bottom: 5vh;
+  }
+
   .rabbit-icon {
-     width: 140px; /* Smaller on mobile */
+    width: min(130px, 30vw); /* Smaller on mobile, never overflows narrow screens */
   }
 
 }
