@@ -2,8 +2,8 @@
 title: Follow the Rabbit
 slug: rabbit
 date: 2026-04-10
-startTime: "22:00"
-endTime: "06:00"
+startTime: 22:00
+endTime: 06:00
 venue: Mango's Nightclub, Benalmádena
 ticketUrl: https://followtherabbit.eventbrite.es
 coverImage: /images/events/rabbit/follow-the-rabbit.webp
@@ -21,30 +21,43 @@ organizers:
     url: https://www.instagram.com/projectinsana
 ticketTiers:
   - name: Early Rabbit
-    price: "TBA"
+    price: 10€
   - name: General Admission
-    price: "TBA"
+    price: 15€
   - name: VIP Burrow
-    price: "TBA"
+    price: TBA
 lineup:
   - name: Arkitech
     image: /images/events/rabbit/arkitech_dj.webp
-    genres: ["Tech-House", "Techno"]
+    genres:
+      - Tech-House
+      - Techno
     socialUrl: https://www.instagram.com/arkitech_music/
     booked: true
   - name: Sive Sana
     image: /images/events/rabbit/sive_sana.webp
-    genres: ["Techno", "Hardgroove", "Eurotrance", "Garage"]
+    genres:
+      - Techno
+      - Hardgroove
+      - Eurotrance
+      - Garage
     socialUrl: https://www.instagram.com/sive_sana_music/
     booked: true
   - name: Moisexxx
     image: /images/events/rabbit/moisexxx.webp
-    genres: ["Techno", "Makina", "Hardgroove", "Bounce"]
+    genres:
+      - Techno
+      - Makina
+      - Hardgroove
+      - Bounce
     socialUrl: https://www.instagram.com/moises3x/
     booked: true
   - name: Rexist
     image: /images/events/rabbit/rexist_dj.webp
-    genres: ["Techno", "Hypnotic", "Hardgroove"]
+    genres:
+      - Techno
+      - Hypnotic
+      - Hardgroove
     socialUrl: https://soundcloud.com/rexistaudio
     booked: true
 gallery:
