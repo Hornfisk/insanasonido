@@ -22,10 +22,12 @@ organizers:
 ticketTiers:
   - name: Early Rabbit
     price: 10€
-  - name: General Admission
+  - name: Normal Rabbit
     price: 15€
-  - name: VIP Burrow
-    price: TBA
+  - name: Late Rabbit
+    price: 20€
+  - name: VIP Rabbit
+    price: 50€
 lineup:
   - name: Arkitech
     image: /images/events/rabbit/arkitech_dj.webp
