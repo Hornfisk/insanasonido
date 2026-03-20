@@ -32,6 +32,10 @@ const eventSchema = {
   organizers: data.organizers,
   performers: data.lineup.filter(a => a.booked).map(a => ({ name: a.name, socialUrl: a.socialUrl })),
   ticketUrl: data.ticketUrl,
+  ticketTiers: data.ticketTiers.map(tier => ({
+    name: tier.name,
+    price: parseFloat(tier.price.replace(/[^0-9.]/g, '')),
+  })),
 };
 
 const pageTitle = `${data.title} | Rave Night · ${data.venue.split(',')[1]?.trim() ?? data.venue} · ${dateFormatted}`;

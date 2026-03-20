@@ -12,6 +12,7 @@ interface EventSchema {
   organizers: { name: string; url: string }[];
   performers: { name: string; socialUrl: string }[];
   ticketUrl: string;
+  ticketTiers: { name: string; price: number }[];
 }
 
 interface Props {
@@ -39,7 +40,7 @@ const musicEventLD = eventSchema ? {
   '@type': 'MusicEvent',
   name: eventSchema.name,
   description: eventSchema.description,
-  url: `${siteUrl}/${eventSchema.url}`,
+  url: `${siteUrl}/${eventSchema.url}/`,
   image: `${siteUrl}${eventSchema.image}`,
   startDate: eventSchema.startDate,
   eventStatus: 'https://schema.org/EventScheduled',
@@ -58,11 +59,14 @@ const musicEventLD = eventSchema ? {
   },
   organizer: eventSchema.organizers.map(o => ({ '@type': 'Organization', name: o.name, url: o.url })),
   performer: eventSchema.performers.map(p => ({ '@type': 'MusicGroup', name: p.name, url: p.socialUrl })),
-  offers: {
+  offers: eventSchema.ticketTiers.map(tier => ({
     '@type': 'Offer',
+    name: tier.name,
+    price: tier.price,
+    priceCurrency: 'EUR',
     url: eventSchema.ticketUrl,
     availability: 'https://schema.org/InStock',
-  },
+  })),
 } : null;
 
 const websiteLD = !eventSchema ? {
