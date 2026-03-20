@@ -17,6 +17,7 @@ const events = defineCollection({
     venue: z.string(),
     ticketUrl: httpUrl,
     coverImage: z.string(),
+    logoImage: z.string().optional(),
     status: z.enum(['upcoming', 'past']),
     genres: z.string().array(),
     organizers: z.array(z.object({ name: z.string(), url: httpUrl })),
