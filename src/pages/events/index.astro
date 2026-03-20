@@ -62,7 +62,8 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 <style>
   .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 340px));
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
   }
@@ -84,7 +85,7 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 
   .event-card img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 2/3;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
