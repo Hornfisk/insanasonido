@@ -62,7 +62,7 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 <style>
   .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
@@ -76,6 +76,8 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
     text-decoration: none;
     color: inherit;
     transition: border-color var(--transition);
+    max-width: 280px;
+    margin-inline: auto;
     position: relative;
   }
 

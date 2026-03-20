@@ -137,7 +137,7 @@ const pastEvents = allEvents
 <style>
   .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
@@ -152,6 +152,8 @@ const pastEvents = allEvents
     color: inherit;
     transition: border-color var(--transition);
     position: relative;
+    max-width: 280px;
+    margin-inline: auto;
   }
 
   .event-card:hover {
