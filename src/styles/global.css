@@ -223,6 +223,11 @@ nav {
   padding-top: 220px;
 }
 
+.hero.hero--event {
+  justify-content: flex-start;
+  padding-top: 320px;
+}
+
 .hero-content {
   z-index: 2;
   position: relative; /* Ensure it sits above background */
@@ -253,14 +258,14 @@ nav {
 */
 .rabbit-icon {
   position: absolute;
-  top: 90px;
+  top: 115px;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(100px, 12vw, 160px);
+  width: clamp(110px, 13.2vw, 176px);
   height: auto;
   filter: drop-shadow(0 0 15px var(--color-magenta));
   animation: float 4s ease-in-out infinite;
-  z-index: 1001; 
+  z-index: 1001;
 }
 
 /* --- BULLETPROOF MARQUEE --- */
@@ -862,12 +867,16 @@ footer {
 
   .hero {
     min-height: 100svh;
-    padding-top: max(180px, 28vh);
     padding-bottom: 5vh;
   }
 
+  .hero.hero--event {
+    padding-top: 220px;
+  }
+
   .rabbit-icon {
-    width: min(90px, 22vw);
+    width: min(99px, 24.2vw);
+    top: 100px;
   }
 
 }

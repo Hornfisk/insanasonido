@@ -64,7 +64,7 @@ const sortedLineup = [...data.lineup].sort((a, b) => Number(b.booked) - Number(a
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--event">
     <img src={data.logoImage ?? data.coverImage} alt={`${data.title} Logo`} class="rabbit-icon" fetchpriority="high" />
     <div class="container hero-content">
       <h1>Into The <span class="text-magenta">Rave</span></h1>
