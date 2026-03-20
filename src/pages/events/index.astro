@@ -75,6 +75,7 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
     text-decoration: none;
     color: inherit;
     transition: border-color var(--transition);
+    position: relative;
   }
 
   .event-card:hover {
@@ -83,9 +84,14 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 
   .event-card img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 2/3;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .event-card:hover img {
+    transform: scale(1.03);
   }
 
   .event-card--past img {
@@ -117,7 +123,7 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 
   .event-card-meta {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.7);
     margin-bottom: 0.75rem;
   }
 
