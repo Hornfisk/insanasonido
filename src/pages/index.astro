@@ -70,7 +70,7 @@ const pastEvents = allEvents
                 day: 'numeric', month: 'long', year: 'numeric'
               });
               return (
-                <a href={`/${event.data.slug}`} class="event-card">
+                <a href={`/${event.data.slug}`} class="event-card" style="width:min(200px,45vw)">
                   <img src={event.data.coverImage} alt={event.data.title} loading="lazy" />
                   <div class="event-card-body">
                     <div class="event-card-title">{event.data.title}</div>
@@ -95,7 +95,7 @@ const pastEvents = allEvents
                 day: 'numeric', month: 'long', year: 'numeric'
               });
               return (
-                <a href={`/${event.data.slug}`} class="event-card event-card--past">
+                <a href={`/${event.data.slug}`} class="event-card event-card--past" style="width:min(200px,45vw)">
                   <img src={event.data.coverImage} alt={event.data.title} loading="lazy" />
                   <div class="event-card-body">
                     <div class="event-card-title">{event.data.title}</div>
@@ -152,7 +152,6 @@ const pastEvents = allEvents
     color: inherit;
     transition: border-color var(--transition);
     position: relative;
-    width: min(200px, 45vw);
   }
 
   .event-card:hover {
