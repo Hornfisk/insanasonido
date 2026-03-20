@@ -6,7 +6,7 @@ startTime: 22:00
 endTime: 06:00
 venue: Mango's Nightclub, Benalmádena
 ticketUrl: https://followtherabbit.eventbrite.es
-coverImage: /images/events/rabbit/follow-the-rabbit-poster.webp
+coverImage: /images/events/rabbit/follow-the-rabbit-event.webp
 logoImage: /images/events/rabbit/follow-the-rabbit-logo.webp
 status: upcoming
 genres:
