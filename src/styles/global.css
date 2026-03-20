@@ -909,3 +909,12 @@ footer {
 .social-link:hover img {
   filter: invert(17%) sepia(100%) saturate(4193%) hue-rotate(286deg) brightness(102%) contrast(101%);
 }
+
+/* --- BLOG POST --- */
+.post-body p { margin-bottom: 1.6rem; }
+.post-body h2 { font-family: var(--font-display); font-size: 1.5rem; margin: 3rem 0 1rem; padding-top: 2rem; border-top: 1px solid rgba(217,0,255,0.15); }
+.post-body h3 { font-family: var(--font-display); font-size: 1.15rem; margin: 2rem 0 0.75rem; color: var(--color-magenta); }
+.post-body ul,
+.post-body ol { margin-bottom: 1.6rem; padding-left: 1.5rem; }
+.post-body li { margin-bottom: 0.5rem; }
+.post-body a { color: var(--color-magenta); text-decoration: underline; text-underline-offset: 3px; }
