@@ -1,13 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { useTranslations } from '../../i18n/utils';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { useTranslations } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
-  const allEvents = await getCollection('events');
-  const events = allEvents.filter(e => e.data.lang === 'es');
+  const events = await getCollection('events', e => e.data.lang === 'en');
   return events.map(event => ({
     params: { slug: event.data.urlSlug },
     props: { event },
@@ -17,7 +16,7 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const { data } = event;
 
-const locale = Astro.currentLocale ?? 'es';
+const locale = Astro.currentLocale ?? 'en';
 const t = useTranslations(locale);
 const dateLocale = locale === 'es' ? 'es-ES' : 'en-GB';
 const canonicalBase = locale === 'en' ? '/en' : '';
@@ -50,7 +49,6 @@ const pageDescription = `${data.title} into the Rave. ${data.genres.slice(0, 3).
 
 const sortedLineup = [...data.lineup].sort((a, b) => Number(b.booked) - Number(a.booked));
 
-// Event logo split: "Follow" + "The Rabbit"
 const [logoMain, ...logoRest] = data.title.split(' ');
 const logoAccent = logoRest.join(' ');
 

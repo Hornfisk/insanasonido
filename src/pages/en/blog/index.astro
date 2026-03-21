@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import Base from '../../layouts/Base.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { useTranslations } from '../../i18n/utils';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { useTranslations } from '../../../i18n/utils';
 
-const locale = Astro.currentLocale ?? 'es';
+const locale = Astro.currentLocale ?? 'en';
 const t = useTranslations(locale);
 const dateLocale = locale === 'es' ? 'es-ES' : 'en-GB';
 const canonicalBase = locale === 'en' ? '/en' : '';
@@ -16,7 +16,7 @@ const posts = await getCollection('blog', p => p.data.lang === locale);
 const sortedPosts = posts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 ---
 <Base
-  title={locale === 'es' ? 'Blog — InsanaSonido' : 'Blog — InsanaSonido'}
+  title="Blog — InsanaSonido"
   description={locale === 'es' ? 'Noticias, crónicas y anuncios de InsanaSonido.' : 'News, recaps, and announcements from InsanaSonido.'}
   canonicalPath={`${canonicalBase}/blog/`}
   locale={locale}
@@ -56,74 +56,17 @@ const sortedPosts = posts.sort((a, b) => b.data.publishDate.getTime() - a.data.p
 </Base>
 
 <style>
-  .posts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .post-card {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 1.5rem;
-    border: 1px solid rgba(217, 0, 255, 0.2);
-    border-radius: 4px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color var(--transition);
-  }
-
-  .post-card:hover {
-    border-color: var(--color-magenta);
-  }
-
-  .post-card-img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .post-card-body {
-    padding: 1.5rem 1.5rem 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .post-card-date {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .post-card-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .post-card-excerpt {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
+  .posts-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .post-card { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; border: 1px solid rgba(217,0,255,0.2); border-radius: 4px; overflow: hidden; text-decoration: none; color: inherit; transition: border-color var(--transition); }
+  .post-card:hover { border-color: var(--color-magenta); }
+  .post-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; display: block; }
+  .post-card-body { padding: 1.5rem 1.5rem 1.5rem 0; display: flex; flex-direction: column; justify-content: center; }
+  .post-card-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .post-card-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .post-card-excerpt { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6; }
   @media (max-width: 600px) {
-    .post-card {
-      grid-template-columns: 1fr;
-    }
-    .post-card-img {
-      aspect-ratio: 16/9;
-    }
-    .post-card-body {
-      padding: 1.25rem;
-    }
+    .post-card { grid-template-columns: 1fr; }
+    .post-card-img { aspect-ratio: 16/9; }
+    .post-card-body { padding: 1.25rem; }
   }
 </style>

@@ -21,6 +21,7 @@ interface Props {
   ogImage?: string;
   canonicalPath: string;
   eventSchema?: EventSchema;
+  locale?: string;
 }
 
 const {
@@ -29,18 +30,26 @@ const {
   ogImage = '/images/events/rabbit/follow-the-rabbit-event.webp',
   canonicalPath,
   eventSchema,
+  locale = 'es',
 } = Astro.props;
 
 const siteUrl = 'https://insanasonido.es';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const ogLocale = locale === 'en' ? 'en_GB' : 'es_ES';
+
+// Hreflang URLs: derive both language versions from canonicalPath
+const esPath = locale === 'en' ? (canonicalPath.replace(/^\/en/, '') || '/') : canonicalPath;
+const enPath = locale === 'en' ? canonicalPath : `/en${canonicalPath}`;
+const esCanonicalUrl = `${siteUrl}${esPath}`;
+const enCanonicalUrl = `${siteUrl}${enPath}`;
 
 const musicEventLD = eventSchema ? {
   '@context': 'https://schema.org',
   '@type': 'MusicEvent',
   name: eventSchema.name,
   description: eventSchema.description,
-  url: `${siteUrl}/${eventSchema.url}/`,
+  url: canonicalUrl,
   image: `${siteUrl}${eventSchema.image}`,
   startDate: eventSchema.startDate,
   eventStatus: 'https://schema.org/EventScheduled',
@@ -77,7 +86,7 @@ const websiteLD = !eventSchema ? {
 } : null;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -85,13 +94,16 @@ const websiteLD = !eventSchema ? {
     <meta name="description" content={description} />
 
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={esCanonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enCanonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={esCanonicalUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="InsanaSonido" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />

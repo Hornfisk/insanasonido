@@ -1,6 +1,7 @@
 ---
+lang: es
 title: Follow the Rabbit
-slug: rabbit
+urlSlug: rabbit
 date: 2026-04-10
 startTime: 22:00
 endTime: 06:00
@@ -79,6 +80,7 @@ gallery:
   - /images/events/rabbit/IMG_6105.webp
   - /images/events/rabbit/IMG_6108.webp
   - /images/events/rabbit/IMG_6111.webp
+ticketButtonLabel: Comprar Entradas
 ---
 
-Follow the Rabbit into the Rave. A curated Techno, Tech-House and Trance experience presented by Sonido Sessions & Project Insana. April 10, 2026 at Mango's Nightclub, Benalmádena. 18+ ID Required.
+Sigue al Conejo hacia el Rave. Una experiencia selectiva de Techno, Tech-House y Trance presentada por Sonido Sessions & Project Insana. 10 de abril de 2026 en Mango's Nightclub, Benalmádena. Mayores de 18, DNI obligatorio.

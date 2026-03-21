@@ -1,0 +1,52 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  logoMain?: string;
+  logoAccent?: string;
+  logoHref?: string;
+  showSocials?: boolean;
+  presenterLine?: string;
+  copyrightName?: string;
+}
+
+const {
+  logoMain = 'Insana',
+  logoAccent = 'Sonido',
+  logoHref,
+  showSocials = false,
+  presenterLine,
+  copyrightName = 'InsanaSonido',
+} = Astro.props;
+
+const locale = Astro.currentLocale ?? 'es';
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="container footer-content">
+    {logoHref ? (
+      <div class="logo">
+        <a href={logoHref} style="text-decoration:none;color:inherit;">{logoMain}<span>{logoAccent}</span></a>
+      </div>
+    ) : (
+      <div class="logo">{logoMain}<span>{logoAccent}</span></div>
+    )}
+
+    {showSocials && (
+      <div class="socials">
+        <a href="https://www.instagram.com/projectinsana" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <img src="/images/instagram-white-icon.svg" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/events/s/follow-the-rabbit/740952528841627/#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <img src="/images/facebook-app-round-white-icon.svg" alt="Facebook" />
+        </a>
+      </div>
+    )}
+
+    <div class="footer-bottom">
+      {presenterLine && <div class="presenters">{presenterLine}</div>}
+      <div class="copyright">&copy; {year} {copyrightName}. {t('footer.rights')}</div>
+    </div>
+  </div>
+</footer>

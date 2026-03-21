@@ -1,0 +1,48 @@
+export default {
+  nav: {
+    events: 'Events',
+    blog: 'Blog',
+    instagram: 'Instagram',
+    home: 'Home',
+    lineup: 'Lineup',
+    info: 'Info',
+    gallery: 'Gallery',
+    tickets: 'Get Tickets',
+  },
+  home: {
+    heroH1: 'Underground <span class="text-magenta">Sounds</span>',
+    heroSub: 'CURATED ELECTRONIC EVENTS BY SONIDO SESSIONS // PROJECT INSANA',
+    heroCta: 'See Events',
+    aboutH2: 'Who We <span class="text-magenta">Are</span>',
+    aboutBody: "InsanaSonido is the fusion of Sonido Sessions and Project Insana — two collectives united by a love of underground electronic music. We bring raw, curated rave experiences to Spain's South Coast.",
+    upcomingH2: 'Upcoming <span class="text-magenta">Events</span>',
+    pastH2: 'Past <span class="text-magenta">Events</span>',
+    noEvents: 'Events coming soon. Follow us on Instagram for updates.',
+  },
+  event: {
+    heroH1: 'Into The <span class="text-magenta">Rave</span>',
+    heroCta: 'Enter the Void',
+    missionH2: 'Mission <span class="text-magenta">Briefing</span>',
+    date: 'Date',
+    time: 'Time',
+    location: 'Location',
+    ageRestriction: 'Age Restriction',
+    ageValue: '18+ ID Required',
+    accessH2: 'Access <span class="text-magenta">Passes</span>',
+    buyTickets: 'Buy Tickets',
+    galleryH2: 'Visual <span class="text-magenta">Echoes</span>',
+    presentedBy: 'Presented by',
+  },
+  blog: {
+    pageH1: 'The <span class="text-magenta">Journal</span>',
+    noPosts: 'No posts yet. Check back after the next event.',
+  },
+  allEvents: {
+    pageH1: 'All <span class="text-magenta">Events</span>',
+    upcoming: '● Upcoming',
+    past: 'Past',
+  },
+  footer: {
+    rights: 'All rights reserved.',
+  },
+} as const;

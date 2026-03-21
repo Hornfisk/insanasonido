@@ -1,0 +1,43 @@
+---
+const locale = Astro.currentLocale ?? 'es';
+const p = Astro.url.pathname;
+const esPath = locale === 'en' ? (p.replace(/^\/en/, '') || '/') : p;
+const enPath = locale === 'es' ? `/en${p}` : p;
+---
+<div class="lang-switcher">
+  <a
+    href={esPath}
+    class:list={['lang-btn', { 'lang-btn--active': locale === 'es' }]}
+    aria-label="Español"
+    hreflang="es"
+  >🇪🇸</a>
+  <a
+    href={enPath}
+    class:list={['lang-btn', { 'lang-btn--active': locale === 'en' }]}
+    aria-label="English"
+    hreflang="en"
+  >🇬🇧</a>
+</div>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .lang-btn {
+    font-size: 1.2rem;
+    line-height: 1;
+    opacity: 0.35;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .lang-btn:hover,
+  .lang-btn--active {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(217, 0, 255, 0.7));
+  }
+</style>

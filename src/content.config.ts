@@ -9,8 +9,9 @@ const httpUrl = z.string().url().refine(
 const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: z.object({
+    lang: z.enum(['es', 'en']).default('en'),
     title: z.string(),
-    slug: z.string(),
+    urlSlug: z.string(),
     date: z.coerce.date(),
     startTime: z.string(),
     endTime: z.string(),
@@ -38,8 +39,9 @@ const events = defineCollection({
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
+    lang: z.enum(['es', 'en']).default('en'),
     title: z.string(),
-    slug: z.string(),
+    urlSlug: z.string(),
     publishDate: z.coerce.date(),
     excerpt: z.string(),
     coverImage: z.string(),

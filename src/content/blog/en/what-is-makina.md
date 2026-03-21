@@ -1,6 +1,7 @@
 ---
+lang: en
 title: "What Is Makina? History, Sound, and the Costa del Sol Revival"
-slug: "what-is-makina"
+urlSlug: "what-is-makina"
 publishDate: "2026-03-20"
 excerpt: "Discover what Makina is, where it came from in Spain, how Spanish Makina differs from UK Makina, and why the sound is returning on the Costa del Sol."
 coverImage: "/images/makina-in-spain.webp"

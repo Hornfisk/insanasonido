@@ -1,0 +1,48 @@
+export default {
+  nav: {
+    events: 'Eventos',
+    blog: 'Blog',
+    instagram: 'Instagram',
+    home: 'Inicio',
+    lineup: 'Cartel',
+    info: 'Info',
+    gallery: 'Galería',
+    tickets: 'Comprar Entradas',
+  },
+  home: {
+    heroH1: 'Sonidos <span class="text-magenta">Underground</span>',
+    heroSub: 'EVENTOS ELECTRÓNICOS SELECCIONADOS POR SONIDO SESSIONS // PROJECT INSANA',
+    heroCta: 'Ver Eventos',
+    aboutH2: 'Quiénes <span class="text-magenta">Somos</span>',
+    aboutBody: 'InsanaSonido es la fusión de Sonido Sessions y Project Insana — dos colectivos unidos por el amor a la música electrónica underground. Llevamos experiencias rave crudas y seleccionadas a la Costa del Sol.',
+    upcomingH2: 'Próximos <span class="text-magenta">Eventos</span>',
+    pastH2: 'Eventos <span class="text-magenta">Pasados</span>',
+    noEvents: 'Próximamente eventos. Síguenos en Instagram para novedades.',
+  },
+  event: {
+    heroH1: 'Adéntrate en el <span class="text-magenta">Rave</span>',
+    heroCta: 'Entra al Vacío',
+    missionH2: '<span class="text-magenta">Información</span> del Evento',
+    date: 'Fecha',
+    time: 'Hora',
+    location: 'Lugar',
+    ageRestriction: 'Edad Mínima',
+    ageValue: '18+ DNI Obligatorio',
+    accessH2: 'Pases de <span class="text-magenta">Acceso</span>',
+    buyTickets: 'Comprar Entradas',
+    galleryH2: 'Ecos <span class="text-magenta">Visuales</span>',
+    presentedBy: 'Presentado por',
+  },
+  blog: {
+    pageH1: 'El <span class="text-magenta">Diario</span>',
+    noPosts: 'Sin entradas aún. Vuelve después del próximo evento.',
+  },
+  allEvents: {
+    pageH1: 'Todos los <span class="text-magenta">Eventos</span>',
+    upcoming: '● Próximo',
+    past: 'Pasado',
+  },
+  footer: {
+    rights: 'Todos los derechos reservados.',
+  },
+} as const;
