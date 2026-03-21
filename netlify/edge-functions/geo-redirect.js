@@ -3,7 +3,7 @@ export default async (request, context) => {
   const { pathname } = url;
 
   // Skip: already English, static assets (contain dot), CMS admin
-  if (pathname.startsWith('/en') || pathname.startsWith('/420') || /\.[a-z]+$/i.test(pathname)) return;
+  if (pathname.startsWith('/en') || pathname.startsWith('/420') || /\.[a-z0-9]+$/i.test(pathname)) return;
 
   // Skip: search engine crawlers and social media bots — they must see canonical 200
   const ua = request.headers.get('user-agent') ?? '';
