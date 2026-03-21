@@ -298,6 +298,7 @@ nav {
   margin-bottom: 20px;
   text-transform: uppercase;
   animation: textFlicker 3s infinite alternate;
+  will-change: filter, opacity;
 }
 
 .hero p {
@@ -899,22 +900,10 @@ footer {
 }
 
 @keyframes textFlicker {
-  0% {
-    opacity: 1;
-    text-shadow: 0 0 10px rgba(217,0,255,0.5);
-  }
-  5% {
-    opacity: 0.8;
-    text-shadow: 0 0 0 rgba(217,0,255,0);
-  }
-  10% {
-    opacity: 1;
-    text-shadow: 0 0 10px rgba(217,0,255,0.5);
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 20px rgba(217,0,255,0.5);
-  }
+  0%   { opacity: 1;   filter: drop-shadow(0 0 10px rgba(217,0,255,0.5)); }
+  5%   { opacity: 0.8; filter: drop-shadow(0 0  0   rgba(217,0,255,0));   }
+  10%  { opacity: 1;   filter: drop-shadow(0 0 10px rgba(217,0,255,0.5)); }
+  100% { opacity: 1;   filter: drop-shadow(0 0 20px rgba(217,0,255,0.5)); }
 }
 
 /* --- RESPONSIVE --- */

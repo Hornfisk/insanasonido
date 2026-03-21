@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/Header.astro';
@@ -30,11 +31,17 @@ const dateFormatted = new Date(data.date).toLocaleDateString(dateLocale, {
   year: 'numeric',
 });
 
+const heroSrc = data.logoImage ?? data.coverImage;
+const [heroImg, coverImg] = await Promise.all([
+  getImage({ src: heroSrc, width: 600, height: 600, format: 'webp' }),
+  getImage({ src: data.coverImage, width: 1200, height: 630, format: 'webp' }),
+]);
+
 const eventSchema = {
   name: data.title,
   description: event.body?.trim() || data.title,
   url: data.urlSlug,
-  image: data.coverImage,
+  image: coverImg.src,
   startDate: `${data.date.toISOString().split('T')[0]}T${data.startTime}:00`,
   genres: data.genres,
   venue: data.venue,
@@ -68,7 +75,8 @@ const breadcrumbs = [
 <Base
   title={pageTitle}
   description={pageDescription}
-  ogImage={data.coverImage}
+  ogImage={coverImg.src}
+  lcpImageSrc={heroImg.src}
   canonicalPath={`${canonicalBase}/${data.urlSlug}/`}
   eventSchema={eventSchema}
   breadcrumbs={breadcrumbs}
@@ -78,7 +86,7 @@ const breadcrumbs = [
 
   <!-- Hero -->
   <section class="hero hero--event">
-    <img src={data.logoImage ?? data.coverImage} alt={`${data.title} Logo`} class="rabbit-icon" fetchpriority="high" />
+    <Image src={heroSrc} alt={`${data.title} Logo`} class="rabbit-icon" fetchpriority="high" width={600} height={600} />
     <div class="container hero-content">
       <h1>{t('event.heroH1')} <span class="text-magenta">{t('event.heroH1Accent')}</span></h1>
       <p>PRESENTED BY {data.organizers.map(o => o.name).join(' // ').toUpperCase()}</p>
@@ -107,10 +115,10 @@ const breadcrumbs = [
             <div class="artist-card">
               {artist.booked ? (
                 <a href={artist.socialUrl} target="_blank" rel="noopener noreferrer">
-                  <img src={artist.image} alt={`${artist.name} DJ`} class="artist-img" />
+                  <Image src={artist.image} alt={`${artist.name} DJ`} class="artist-img" width={300} height={300} loading="lazy" />
                 </a>
               ) : (
-                <img src={artist.image} alt="" class="artist-img" />
+                <Image src={artist.image} alt="" class="artist-img" width={300} height={300} loading="lazy" />
               )}
               <div class="artist-name">{artist.booked ? artist.name.toUpperCase() : 'TBA'}</div>
               <div class="artist-genre">
@@ -176,12 +184,12 @@ const breadcrumbs = [
         <div class="gallery-grid" id="galleryGrid">
           {data.gallery.map((src, i) => (
             <div class="gallery-item">
-              <img src={src} alt={`${data.title} at ${data.venue} – photo ${i + 1}`} loading="lazy" />
+              <Image src={src} alt={`${data.title} at ${data.venue} – photo ${i + 1}`} loading="lazy" width={560} height={373} />
             </div>
           ))}
           {data.gallery.map(src => (
             <div class="gallery-item" aria-hidden="true">
-              <img src={src} alt="" loading="lazy" />
+              <Image src={src} alt="" loading="lazy" width={560} height={373} />
             </div>
           ))}
         </div>

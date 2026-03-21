@@ -266,9 +266,19 @@ function initLineupDrag(lineupGrid) {
     });
     resizeObserver.observe(lineupViewport);
 
+    // Pause the RAF loop when the carousel scrolls out of view
+    const visibilityObserver = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            if (mq.matches) startLoop();
+        } else {
+            stopLoop();
+        }
+    }, { threshold: 0 });
+    visibilityObserver.observe(lineupViewport);
+
     requestAnimationFrame(() => {
         measureHalfWidth();
-        if (mq.matches) startLoop();
+        if (mq.matches && lineupViewport.getBoundingClientRect().top < window.innerHeight) startLoop();
     });
 }
 

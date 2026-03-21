@@ -4,7 +4,7 @@ title: "What Is Makina? History, Sound, and the Costa del Sol Revival"
 urlSlug: "what-is-makina"
 publishDate: "2026-03-20"
 excerpt: "Discover what Makina is, where it came from in Spain, how Spanish Makina differs from UK Makina, and why the sound is returning on the Costa del Sol."
-coverImage: "/images/makina-in-spain.webp"
+coverImage: ../../../assets/images/makina-in-spain.webp
 ---
 
 **Makina** is one of the most energetic and misunderstood styles in electronic music. Fast, emotional, melodic, and built for movement, it has deep roots in Spain's club culture and a loyal following that never fully disappeared.

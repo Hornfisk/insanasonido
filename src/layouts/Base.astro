@@ -1,5 +1,12 @@
 ---
 import '../styles/global.css';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/700.css';
+import type { ImageMetadata } from 'astro';
 
 interface EventSchema {
   name: string;
@@ -26,12 +33,13 @@ interface BlogSchema {
 interface Props {
   title: string;
   description: string;
-  ogImage?: string;
+  ogImage?: string | ImageMetadata;
   canonicalPath: string;
   eventSchema?: EventSchema;
   blogSchema?: BlogSchema;
   breadcrumbs?: { name: string; url: string }[];
   locale?: string;
+  lcpImageSrc?: string;
 }
 
 const {
@@ -43,11 +51,13 @@ const {
   blogSchema,
   breadcrumbs,
   locale = 'es',
+  lcpImageSrc,
 } = Astro.props;
 
 const siteUrl = 'https://insanasonido.es';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const ogImageRaw = typeof ogImage === 'string' ? ogImage : ogImage?.src ?? '/images/events/rabbit/follow-the-rabbit-event.webp';
+const ogImageUrl = ogImageRaw.startsWith('http') ? ogImageRaw : `${siteUrl}${ogImageRaw}`;
 const ogLocale = locale === 'en' ? 'en_GB' : 'es_ES';
 
 // Hreflang URLs: derive both language versions from canonicalPath
@@ -175,16 +185,7 @@ const breadcrumbLD = breadcrumbs && breadcrumbs.length > 0 ? {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Google Fonts (async to avoid render-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;700;900&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;700;900&display=swap" />
-    </noscript>
+    {lcpImageSrc && <link rel="preload" as="image" href={lcpImageSrc} type="image/webp" />}
 
     <!-- Google Analytics 4 -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-M8XLQ99J8T" crossorigin="anonymous"></script>

@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/Header.astro';
@@ -32,18 +33,20 @@ const breadcrumbs = [
   { name: post.data.title, url: `${canonicalBase}/blog/${post.data.urlSlug}/` },
 ];
 
+const coverImg = await getImage({ src: post.data.coverImage, width: 1200, height: 630, format: 'webp' });
+
 const blogSchema = {
   title: post.data.title,
   description: post.data.excerpt,
   publishDate: post.data.publishDate.toISOString(),
-  image: post.data.coverImage,
+  image: coverImg.src,
   url: `${canonicalBase}/blog/${post.data.urlSlug}/`,
 };
 ---
 <Base
   title={`${post.data.title} — InsanaSonido`}
   description={post.data.excerpt}
-  ogImage={post.data.coverImage}
+  ogImage={coverImg.src}
   canonicalPath={`${canonicalBase}/blog/${post.data.urlSlug}/`}
   blogSchema={blogSchema}
   breadcrumbs={breadcrumbs}
@@ -53,7 +56,7 @@ const blogSchema = {
 
   <article class="section-padding post-article" style="padding-top: 8rem;">
     <div class="container post-container">
-      <img src={post.data.coverImage} alt={post.data.title} class="post-cover" />
+      <Image src={post.data.coverImage} alt={post.data.title} class="post-cover" width={740} height={416} />
       <div class="post-meta">{dateStr}</div>
       <h1 class="post-title">{post.data.title}</h1>
       <p class="post-excerpt">{post.data.excerpt}</p>

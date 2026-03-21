@@ -4,7 +4,7 @@ title: "¿Qué es la Makina? Historia, Sonido y el Renacimiento en la Costa del 
 urlSlug: "what-is-makina"
 publishDate: "2026-03-20"
 excerpt: "Descubre qué es la Makina, sus orígenes en España, las diferencias entre la Makina española y la UK, y por qué el sonido está volviendo en la Costa del Sol."
-coverImage: "/images/makina-in-spain.webp"
+coverImage: ../../../assets/images/makina-in-spain.webp
 ---
 
 **La Makina** es uno de los estilos más enérgicos e incomprendidos de la música electrónica. Rápida, emocional, melódica y construida para el movimiento, tiene raíces profundas en la cultura de club española y una comunidad fiel que nunca desapareció del todo.
