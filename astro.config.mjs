@@ -4,6 +4,9 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://insanasonido.es',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
       i18n: {

@@ -158,7 +158,10 @@ function initLineupDrag(lineupGrid) {
     }
 
     function tick() {
-        if (halfWidth === 0) measureHalfWidth();
+        if (halfWidth <= 0) {
+            rafId = requestAnimationFrame(tick);
+            return;
+        }
         if (!isDragging) {
             if (isCoasting) {
                 offset -= velocity;
