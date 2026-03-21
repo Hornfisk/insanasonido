@@ -32,14 +32,14 @@ ticketTiers:
     price: 50€
 lineup:
   - name: Arkitech
-    image: /images/events/rabbit/arkitech_dj.webp
+    image: /images/events/rabbit/artists/arkitech.webp
     genres:
       - Tech-House
       - Techno
     socialUrl: https://www.instagram.com/arkitech_music/
     booked: true
   - name: Sive Sana
-    image: /images/events/rabbit/sive_sana.webp
+    image: /images/events/rabbit/artists/sive-sana.webp
     genres:
       - Techno
       - Hardgroove
@@ -48,7 +48,7 @@ lineup:
     socialUrl: https://www.instagram.com/sive_sana_music/
     booked: true
   - name: Moisexxx
-    image: /images/events/rabbit/moisexxx.webp
+    image: /images/events/rabbit/artists/moisexxx.webp
     genres:
       - Techno
       - Makina
@@ -57,7 +57,7 @@ lineup:
     socialUrl: https://www.instagram.com/moises3x/
     booked: true
   - name: Rexist
-    image: /images/events/rabbit/rexist_dj.webp
+    image: /images/events/rabbit/artists/rexist.webp
     genres:
       - Techno
       - Hypnotic
@@ -65,21 +65,21 @@ lineup:
     socialUrl: https://soundcloud.com/rexistaudio
     booked: true
 gallery:
-  - /images/events/rabbit/IMG_6073.webp
-  - /images/events/rabbit/IMG_6074.webp
-  - /images/events/rabbit/IMG_6082.webp
-  - /images/events/rabbit/IMG_6086.webp
-  - /images/events/rabbit/IMG_6089.webp
-  - /images/events/rabbit/IMG_6091.webp
-  - /images/events/rabbit/IMG_6092.webp
-  - /images/events/rabbit/IMG_6093.webp
-  - /images/events/rabbit/IMG_6094.webp
-  - /images/events/rabbit/IMG_6095.webp
-  - /images/events/rabbit/IMG_6096.webp
-  - /images/events/rabbit/IMG_6097.webp
-  - /images/events/rabbit/IMG_6105.webp
-  - /images/events/rabbit/IMG_6108.webp
-  - /images/events/rabbit/IMG_6111.webp
+  - /images/events/rabbit/gallery/closeup-of-dj-nudging-a-technics-turntable.webp
+  - /images/events/rabbit/gallery/crowded-beach-party-costa-del-sol.webp
+  - /images/events/rabbit/gallery/crowded-nightclub-dancefloor-in-spain.webp
+  - /images/events/rabbit/gallery/dj-playing-at-a-rave.webp
+  - /images/events/rabbit/gallery/golden-hour-sunset-scene-in-malaga.webp
+  - /images/events/rabbit/gallery/group-photo-of-friends-at-a-nightout-in-costa-del-sol.webp
+  - /images/events/rabbit/gallery/people-dancing-at-a-rave.webp
+  - /images/events/rabbit/gallery/sonido-sessions-banner-and-dj-playing.webp
+  - /images/events/rabbit/gallery/underground-rave-scene-dancefloor.webp
+  - /images/events/rabbit/gallery/young-man-vibing-at-a-rave.webp
+  - /images/events/rabbit/gallery/young-people-at-costa-beach-party.webp
+  - /images/events/rabbit/gallery/young-people-at-costa-del-sol-nightclub.webp
+  - /images/events/rabbit/gallery/young-people-dancing-at-a-nightclub.webp
+  - /images/events/rabbit/gallery/young-people-enjoying-the-sunset-in-costa-del-sol.webp
+  - /images/events/rabbit/gallery/young-woman-dancing-at-a-nightclub.webp
 ticketButtonLabel: Comprar Entradas
 ---
 
