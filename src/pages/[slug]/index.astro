@@ -34,7 +34,7 @@ const dateFormatted = new Date(data.date).toLocaleDateString(dateLocale, {
 const eventSchema = {
   name: data.title,
   description: event.body?.trim() || data.title,
-  url: data.slug,
+  url: data.urlSlug,
   image: data.coverImage,
   startDate: `${data.date.toISOString().split('T')[0]}T${data.startTime}:00`,
   genres: data.genres,
@@ -49,7 +49,8 @@ const eventSchema = {
 };
 
 const pageTitle = `${data.title} | Rave Night · ${data.venue.split(',')[1]?.trim() ?? data.venue} · ${dateFormatted}`;
-const pageDescription = `${data.title} into the Rave. ${data.genres.slice(0, 3).join(', ')} at ${data.venue} on ${dateFormatted}. ${t('event.presentedBy')} ${data.organizers.map(o => o.name).join(' & ')}.`;
+const minPrice = data.ticketTiers.map(tier => parseFloat(tier.price.replace(/[^0-9.]/g, ''))).sort((a, b) => a - b)[0];
+const pageDescription = `Rave ${data.title} en ${data.venue} – ${dateFormatted}. ${data.genres.slice(0, 3).join(', ')}. Entradas desde ${minPrice}€. ${t('event.presentedBy')} ${data.organizers.map(o => o.name).join(' & ')}.`;
 
 const sortedLineup = [...data.lineup].sort((a, b) => Number(b.booked) - Number(a.booked));
 
@@ -70,7 +71,7 @@ const breadcrumbs = [
   title={pageTitle}
   description={pageDescription}
   ogImage={data.coverImage}
-  canonicalPath={`${canonicalBase}/${data.slug}/`}
+  canonicalPath={`${canonicalBase}/${data.urlSlug}/`}
   eventSchema={eventSchema}
   breadcrumbs={breadcrumbs}
   locale={locale}
@@ -111,7 +112,7 @@ const breadcrumbs = [
                   <img src={artist.image} alt={`${artist.name} DJ`} class="artist-img" />
                 </a>
               ) : (
-                <img src={artist.image} alt="TBA" class="artist-img" />
+                <img src={artist.image} alt="" class="artist-img" />
               )}
               <div class="artist-name">{artist.booked ? artist.name.toUpperCase() : 'TBA'}</div>
               <div class="artist-genre">
@@ -177,7 +178,7 @@ const breadcrumbs = [
         <div class="gallery-grid" id="galleryGrid">
           {data.gallery.map((src, i) => (
             <div class="gallery-item">
-              <img src={src} alt={`Event photo ${i + 1}`} loading="lazy" />
+              <img src={src} alt={`${data.title} en ${data.venue} – foto ${i + 1}`} loading="lazy" />
             </div>
           ))}
           {data.gallery.map(src => (
