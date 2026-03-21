@@ -796,6 +796,12 @@ nav {
   }
 }
 
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  .rabbit-icon {
+    top: 60px;
+  }
+}
+
 /* --- FOOTER --- */
 footer {
   background: var(--color-black);
