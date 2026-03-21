@@ -343,6 +343,7 @@ nav {
   display: flex;
   width: max-content;
   animation: scroll-left var(--marquee-speed) linear infinite;
+  will-change: transform;
 }
 
 .marquee-item {
@@ -786,7 +787,11 @@ nav {
 @media (prefers-reduced-motion: reduce) {
   #crt::before,
   .logo.glitch,
-  .rabbit-icon.glitch {
+  .rabbit-icon.glitch,
+  .marquee-content,
+  .gallery-grid,
+  .hero h1,
+  .rabbit-icon {
     animation-play-state: paused;
   }
 }

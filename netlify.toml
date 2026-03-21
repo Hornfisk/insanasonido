@@ -17,6 +17,17 @@
     Content-Security-Policy = "default-src 'none'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com https://www.facebook.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.facebook.com; frame-ancestors 'none';"
     Cache-Control = "public, max-age=0, must-revalidate"
 
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+
 # /420 route: relaxed CSP for Decap CMS
 [[headers]]
   for = "/420/*"

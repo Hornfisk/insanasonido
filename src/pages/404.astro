@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="404 — Página no encontrada | InsanaSonido"
+  description="Esta página no existe. Vuelve al inicio para ver los próximos eventos de música electrónica en la Costa del Sol."
+  canonicalPath="/404/"
+  locale="es"
+>
+  <Header variant="home" />
+
+  <section class="hero" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container hero-content" style="text-align: center;">
+      <h1 style="font-size: clamp(4rem, 15vw, 10rem); margin-bottom: 0.25em; line-height: 1;">
+        4<span class="text-magenta">0</span>4
+      </h1>
+      <p style="font-size: 1.25rem; opacity: 0.7; margin-bottom: 2rem;">
+        Esta página no existe — pero la música sigue.
+      </p>
+      <a href="/" class="btn btn-primary">Volver al inicio</a>
+    </div>
+  </section>
+
+  <Footer />
+</Base>

@@ -16,7 +16,7 @@ export default {
     heroCta: 'Ver Eventos',
     aboutH2: 'Quiénes',
     aboutH2Accent: 'Somos',
-    aboutBody: 'InsanaSonido es la fusión de Sonido Sessions y Project Insana — dos colectivos unidos por el amor a la música electrónica underground. Llevamos experiencias rave crudas y seleccionadas a la Costa del Sol.',
+    aboutBody: 'InsanaSonido es la fusión de Sonido Sessions y Project Insana — dos colectivos unidos por el amor a la música electrónica underground. Llevamos experiencias rave auténticas a la Costa del Sol: techno, tech-house, hardgroove y makina en Benalmádena, Málaga y toda la costa.',
     upcomingH2: 'Próximos',
     upcomingH2Accent: 'Eventos',
     pastH2: 'Eventos',

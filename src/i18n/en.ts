@@ -16,7 +16,7 @@ export default {
     heroCta: 'See Events',
     aboutH2: 'Who We',
     aboutH2Accent: 'Are',
-    aboutBody: "InsanaSonido is the fusion of Sonido Sessions and Project Insana — two collectives united by a love of underground electronic music. We bring raw, curated rave experiences to Spain's South Coast.",
+    aboutBody: "InsanaSonido is the fusion of Sonido Sessions and Project Insana — two collectives united by a love of underground electronic music. We bring raw, curated rave experiences to Spain's South Coast: techno, tech-house, hardgroove and makina across Benalmádena, Málaga and the Costa del Sol.",
     upcomingH2: 'Upcoming',
     upcomingH2Accent: 'Events',
     pastH2: 'Past',
