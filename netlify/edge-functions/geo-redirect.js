@@ -14,6 +14,7 @@ export default async (request, context) => {
   if (!country || country === 'ES') return;
 
   // All other countries → redirect to English version of same path
+  if (pathname !== '/' && !/^\/[a-zA-Z0-9\-_./]+$/.test(pathname)) return;
   const enPath = `/en${pathname === '/' ? '' : pathname}`;
   return Response.redirect(`${url.origin}${enPath}`, 302);
 };

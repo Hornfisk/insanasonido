@@ -918,3 +918,33 @@ footer {
 .post-body ol { margin-bottom: 1.6rem; padding-left: 1.5rem; }
 .post-body li { margin-bottom: 0.5rem; }
 .post-body a { color: var(--color-magenta); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Cookie consent bar */
+#cookie-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(217, 0, 255, 0.25);
+  font-size: 0.8rem;
+  color: #ccc;
+}
+#cookie-bar span { flex: 1; }
+#cookie-bar button {
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(217, 0, 255, 0.5);
+  background: transparent;
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+#cookie-bar button:hover { background: rgba(217, 0, 255, 0.15); }

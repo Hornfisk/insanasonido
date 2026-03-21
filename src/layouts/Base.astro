@@ -78,6 +78,13 @@ const musicEventLD = eventSchema ? {
   })),
 } : null;
 
+function safeJsonLd(obj: unknown): string {
+  return JSON.stringify(obj)
+    .replace(/<\//g, '<\\/')
+    .replace(/<!--/g, '<\\!--')
+    .replace(/]]>/g, ']]\\>');
+}
+
 const websiteLD = !eventSchema ? {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -120,16 +127,17 @@ const websiteLD = !eventSchema ? {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet" />
 
     <!-- Google Analytics 4 -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-M8XLQ99J8T"></script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-M8XLQ99J8T" crossorigin="anonymous"></script>
     <script is:inline src="/js/analytics.js"></script>
+    <script is:inline src="/js/consent.js"></script>
 
 
 
     {musicEventLD && (
-      <script type="application/ld+json" set:html={JSON.stringify(musicEventLD).replace(/<\//g, '<\\/')} />
+      <script type="application/ld+json" set:html={safeJsonLd(musicEventLD)} />
     )}
     {websiteLD && (
-      <script type="application/ld+json" set:html={JSON.stringify(websiteLD).replace(/<\//g, '<\\/')} />
+      <script type="application/ld+json" set:html={safeJsonLd(websiteLD)} />
     )}
   </head>
   <body>

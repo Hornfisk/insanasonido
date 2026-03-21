@@ -14,7 +14,8 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-    Content-Security-Policy = "default-src 'none'; script-src 'self' https://unpkg.com https://identity.netlify.com https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com; connect-src 'self' https://api.github.com https://identity.netlify.com https://*.netlify.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-ancestors 'none';"
+    Content-Security-Policy = "default-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-ancestors 'none';"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # /420 route: relaxed CSP for Decap CMS
 [[headers]]

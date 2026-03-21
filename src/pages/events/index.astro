@@ -27,7 +27,7 @@ const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.dat
 
   <section class="section-padding" style="padding-top: 8rem;">
     <div class="container">
-      <h1 class="section-title" set:html={t('allEvents.pageH1')} />
+      <h1 class="section-title">{t('allEvents.pageH1')} <span class="text-magenta">{t('allEvents.pageH1Accent')}</span></h1>
       <div class="events-grid">
         {sortedEvents.map(event => {
           const dateStr = event.data.date.toLocaleDateString(dateLocale, {

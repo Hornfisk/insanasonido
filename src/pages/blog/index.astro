@@ -25,7 +25,7 @@ const sortedPosts = posts.sort((a, b) => b.data.publishDate.getTime() - a.data.p
 
   <section class="section-padding" style="padding-top: 8rem;">
     <div class="container">
-      <h1 class="section-title" set:html={t('blog.pageH1')} />
+      <h1 class="section-title">{t('blog.pageH1')} <span class="text-magenta">{t('blog.pageH1Accent')}</span></h1>
 
       {sortedPosts.length === 0 ? (
         <p class="section-subtitle" style="margin-top: 2rem;">{t('blog.noPosts')}</p>

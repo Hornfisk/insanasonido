@@ -46,7 +46,7 @@ const enPath = locale === 'es' ? `/en${p}` : p;
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.getAttribute('hreflang');
-      document.cookie = `lang-pref=${lang};path=/;max-age=2592000;SameSite=Lax`;
+      document.cookie = `lang-pref=${lang};path=/;max-age=2592000;SameSite=Lax;Secure`;
     });
   });
 </script>

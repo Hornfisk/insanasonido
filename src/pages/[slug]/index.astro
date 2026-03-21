@@ -71,7 +71,7 @@ const copyrightName = `${data.title} Event`;
   <section class="hero hero--event">
     <img src={data.logoImage ?? data.coverImage} alt={`${data.title} Logo`} class="rabbit-icon" fetchpriority="high" />
     <div class="container hero-content">
-      <h1 set:html={t('event.heroH1')} />
+      <h1>{t('event.heroH1')} <span class="text-magenta">{t('event.heroH1Accent')}</span></h1>
       <p>PRESENTED BY {data.organizers.map(o => o.name).join(' // ').toUpperCase()}</p>
       <a href="#tickets" class="btn btn-primary">{t('event.heroCta')}</a>
     </div>
@@ -119,7 +119,7 @@ const copyrightName = `${data.title} Event`;
     <div class="container">
       <div class="info-layout">
         <div class="info-box">
-          <h2 class="info-section-title" set:html={t('event.missionH2')} />
+          <h2 class="info-section-title"><span class="text-magenta">{t('event.missionH2Accent')}</span> {t('event.missionH2')}</h2>
           <div class="info-item">
             <span class="info-label">{t('event.date')}</span>
             <span class="info-value">{dateFormatted}</span>
@@ -142,7 +142,7 @@ const copyrightName = `${data.title} Event`;
           </div>
         </div>
         <div id="tickets" class="info-box info-box--alt">
-          <h2 class="info-section-title" set:html={t('event.accessH2')} />
+          <h2 class="info-section-title">{t('event.accessH2')} <span class="text-magenta">{t('event.accessH2Accent')}</span></h2>
           {data.ticketTiers.map(tier => (
             <div class="ticket-tier">
               <div>
@@ -162,7 +162,7 @@ const copyrightName = `${data.title} Event`;
   <!-- Gallery -->
   <section id="gallery" class="section-padding">
     <div class="container">
-      <h2 class="section-title text-center" set:html={t('event.galleryH2')} />
+      <h2 class="section-title text-center">{t('event.galleryH2')} <span class="text-magenta">{t('event.galleryH2Accent')}</span></h2>
       <div class="gallery-viewport">
         <div class="gallery-grid" id="galleryGrid">
           {data.gallery.map((src, i) => (

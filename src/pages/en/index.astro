@@ -37,7 +37,7 @@ const pageDesc = locale === 'es'
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-content">
-      <h1 set:html={t('home.heroH1')} />
+      <h1>{t('home.heroH1')} <span class="text-magenta">{t('home.heroH1Accent')}</span></h1>
       <p>{t('home.heroSub')}</p>
       <a href="#events" class="btn btn-primary">{t('home.heroCta')}</a>
     </div>
@@ -55,7 +55,7 @@ const pageDesc = locale === 'es'
   <!-- About -->
   <section class="section-padding">
     <div class="container text-center">
-      <h2 class="section-title" set:html={t('home.aboutH2')} />
+      <h2 class="section-title">{t('home.aboutH2')} <span class="text-magenta">{t('home.aboutH2Accent')}</span></h2>
       <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
         {t('home.aboutBody')}
       </p>
@@ -67,7 +67,7 @@ const pageDesc = locale === 'es'
     <div class="container">
       {upcomingEvents.length > 0 && (
         <>
-          <h2 class="section-title" set:html={t('home.upcomingH2')} />
+          <h2 class="section-title">{t('home.upcomingH2')} <span class="text-magenta">{t('home.upcomingH2Accent')}</span></h2>
           <div class="events-grid">
             {upcomingEvents.map(event => {
               const dateStr = event.data.date.toLocaleDateString(dateLocale, {
@@ -93,7 +93,7 @@ const pageDesc = locale === 'es'
 
       {pastEvents.length > 0 && (
         <>
-          <h2 class="section-title" style="margin-top: 4rem;" set:html={t('home.pastH2')} />
+          <h2 class="section-title" style="margin-top: 4rem;">{t('home.pastH2')} <span class="text-magenta">{t('home.pastH2Accent')}</span></h2>
           <div class="events-grid">
             {pastEvents.map(event => {
               const dateStr = event.data.date.toLocaleDateString(dateLocale, {
