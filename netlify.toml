@@ -10,11 +10,13 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
 
 [[headers]]
   for = "/*"
@@ -26,6 +28,7 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Cross-Origin-Opener-Policy = "same-origin"
     Cache-Control = "public, max-age=0, must-revalidate"
+    Expires = "0"
 
 [[redirects]]
   from = "/index.html"

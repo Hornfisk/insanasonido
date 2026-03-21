@@ -7,7 +7,7 @@ export default async (request, context) => {
 
   // Skip: search engine crawlers and social media bots — they must see canonical 200
   const ua = request.headers.get('user-agent') ?? '';
-  if (/googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit/i.test(ua)) return;
+  if (/googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|pingdom/i.test(ua)) return;
 
   // Respect manual language override cookie
   const cookie = request.headers.get('cookie') ?? '';
