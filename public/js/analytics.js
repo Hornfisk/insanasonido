@@ -26,7 +26,7 @@ fbq('consent', 'revoke');
 fbq('init', '1677678859912016');
 
 // ─── Consent gate ─────────────────────────────────────────────────────────────
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var stored = localStorage.getItem('cookie-consent');
 
   if (stored === 'granted') {
@@ -77,4 +77,4 @@ fbq('init', '1677678859912016');
     localStorage.setItem('cookie-consent', 'denied');
     bar.remove();
   };
-})();
+});

@@ -7,7 +7,7 @@ export default {
     lineup: 'Lineup',
     info: 'Info',
     gallery: 'Gallery',
-    tickets: 'Get Tickets',
+    tickets: 'Tickets',
   },
   home: {
     heroH1: 'Underground',
