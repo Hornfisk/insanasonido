@@ -41,3 +41,12 @@ const enPath = locale === 'es' ? `/en${p}` : p;
     filter: drop-shadow(0 0 6px rgba(217, 0, 255, 0.7));
   }
 </style>
+
+<script>
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('hreflang');
+      document.cookie = `lang-pref=${lang};path=/;max-age=2592000;SameSite=Lax`;
+    });
+  });
+</script>

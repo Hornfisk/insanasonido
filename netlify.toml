@@ -2,6 +2,10 @@
   command = "astro build"
   publish = "dist"
 
+[[edge_functions]]
+  path = "/*"
+  function = "geo-redirect"
+
 [[headers]]
   for = "/*"
   [headers.values]
