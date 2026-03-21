@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { useTranslations } from '../i18n/utils';
 
 interface Props {
-  variant: 'home' | 'event' | 'blog' | 'blog-post';
+  variant: 'home' | 'event' | 'blog' | 'blog-post' | 'events';
   logoMain?: string;
   logoAccent?: string;
   logoHref?: string;
@@ -22,6 +22,7 @@ const t = useTranslations(locale);
 
 const homeUrl = getRelativeLocaleUrl(locale, '/');
 const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
+const eventsUrl = getRelativeLocaleUrl(locale, '/events/');
 ---
 <header>
   <div class="container">
@@ -44,6 +45,7 @@ const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
         )}
         {variant === 'event' && (
           <>
+            <a href={blogUrl}>{t('nav.blog')}</a>
             <a href="#lineup">{t('nav.lineup')}</a>
             <a href="#info">{t('nav.info')}</a>
             <a href="#gallery">{t('nav.gallery')}</a>
@@ -53,10 +55,17 @@ const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
         {variant === 'blog' && (
           <>
             <a href={homeUrl}>{t('nav.home')}</a>
-            <a href={`${homeUrl}#events`}>{t('nav.events')}</a>
+            <a href={eventsUrl}>{t('nav.events')}</a>
           </>
         )}
         {variant === 'blog-post' && (
+          <>
+            <a href={homeUrl}>{t('nav.home')}</a>
+            <a href={eventsUrl}>{t('nav.events')}</a>
+            <a href={blogUrl}>{t('nav.blog')}</a>
+          </>
+        )}
+        {variant === 'events' && (
           <>
             <a href={homeUrl}>{t('nav.home')}</a>
             <a href={blogUrl}>{t('nav.blog')}</a>

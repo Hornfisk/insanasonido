@@ -16,7 +16,7 @@ const posts = await getCollection('blog', p => p.data.lang === locale);
 const sortedPosts = posts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 ---
 <Base
-  title="Blog — InsanaSonido"
+  title="Underground Electronic Music Blog — InsanaSonido"
   description={locale === 'es' ? 'Noticias, crónicas y anuncios de InsanaSonido.' : 'News, recaps, and announcements from InsanaSonido.'}
   canonicalPath={`${canonicalBase}/blog/`}
   locale={locale}

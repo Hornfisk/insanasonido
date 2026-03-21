@@ -16,12 +16,12 @@ const allEvents = await getCollection('events', e => e.data.lang === locale);
 const sortedEvents = allEvents.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <Base
-  title="Events — InsanaSonido"
+  title="Techno & Makina Events on the Costa del Sol — InsanaSonido"
   description="All InsanaSonido events. Underground electronic music in Spain — Techno, Tech-House, Tech-Trance."
   canonicalPath={`${canonicalBase}/events/`}
   locale={locale}
 >
-  <Header variant="blog" logoHref={homeUrl} />
+  <Header variant="events" logoHref={homeUrl} />
 
   <section class="section-padding" style="padding-top: 8rem;">
     <div class="container">

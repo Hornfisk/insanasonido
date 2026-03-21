@@ -20,16 +20,33 @@ const locale = Astro.currentLocale ?? 'en';
 const dateLocale = locale === 'es' ? 'es-ES' : 'en-GB';
 const canonicalBase = locale === 'en' ? '/en' : '';
 const homeUrl = getRelativeLocaleUrl(locale, '/');
+const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
 
 const dateStr = post.data.publishDate.toLocaleDateString(dateLocale, {
   day: 'numeric', month: 'long', year: 'numeric'
 });
+
+const breadcrumbs = [
+  { name: locale === 'es' ? 'Inicio' : 'Home', url: homeUrl },
+  { name: 'Blog', url: blogUrl },
+  { name: post.data.title, url: `${canonicalBase}/blog/${post.data.urlSlug}/` },
+];
+
+const blogSchema = {
+  title: post.data.title,
+  description: post.data.excerpt,
+  publishDate: post.data.publishDate.toISOString(),
+  image: post.data.coverImage,
+  url: `${canonicalBase}/blog/${post.data.urlSlug}/`,
+};
 ---
 <Base
   title={`${post.data.title} — InsanaSonido`}
   description={post.data.excerpt}
   ogImage={post.data.coverImage}
   canonicalPath={`${canonicalBase}/blog/${post.data.urlSlug}/`}
+  blogSchema={blogSchema}
+  breadcrumbs={breadcrumbs}
   locale={locale}
 >
   <Header variant="blog-post" logoHref={homeUrl} />

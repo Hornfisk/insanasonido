@@ -15,12 +15,22 @@ interface EventSchema {
   ticketTiers: { name: string; price: number }[];
 }
 
+interface BlogSchema {
+  title: string;
+  description: string;
+  publishDate: string;
+  image: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
   canonicalPath: string;
   eventSchema?: EventSchema;
+  blogSchema?: BlogSchema;
+  breadcrumbs?: { name: string; url: string }[];
   locale?: string;
 }
 
@@ -30,6 +40,8 @@ const {
   ogImage = '/images/events/rabbit/follow-the-rabbit-event.webp',
   canonicalPath,
   eventSchema,
+  blogSchema,
+  breadcrumbs,
   locale = 'es',
 } = Astro.props;
 
@@ -91,6 +103,48 @@ const websiteLD = !eventSchema ? {
   name: 'InsanaSonido',
   url: siteUrl,
 } : null;
+
+const organizationLD = !eventSchema ? {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'InsanaSonido',
+  url: siteUrl,
+  description: 'Underground electronic music events on the Costa del Sol. Techno, Tech-House, Makina and more. Presented by Sonido Sessions & Project Insana.',
+  sameAs: [
+    'https://www.instagram.com/projectinsana',
+    'https://www.facebook.com/events/s/follow-the-rabbit/740952528841627/',
+  ],
+} : null;
+
+const blogPostLD = blogSchema ? {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: blogSchema.title,
+  description: blogSchema.description,
+  image: blogSchema.image.startsWith('http') ? blogSchema.image : `${siteUrl}${blogSchema.image}`,
+  datePublished: blogSchema.publishDate,
+  url: blogSchema.url.startsWith('http') ? blogSchema.url : `${siteUrl}${blogSchema.url}`,
+  publisher: {
+    '@type': 'Organization',
+    name: 'InsanaSonido',
+    url: siteUrl,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': blogSchema.url.startsWith('http') ? blogSchema.url : `${siteUrl}${blogSchema.url}`,
+  },
+} : null;
+
+const breadcrumbLD = breadcrumbs && breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`,
+  })),
+} : null;
 ---
 <!doctype html>
 <html lang={locale}>
@@ -139,12 +193,39 @@ const websiteLD = !eventSchema ? {
     {websiteLD && (
       <script type="application/ld+json" set:html={safeJsonLd(websiteLD)} />
     )}
+    {organizationLD && (
+      <script type="application/ld+json" set:html={safeJsonLd(organizationLD)} />
+    )}
+    {blogPostLD && (
+      <script type="application/ld+json" set:html={safeJsonLd(blogPostLD)} />
+    )}
+    {breadcrumbLD && (
+      <script type="application/ld+json" set:html={safeJsonLd(breadcrumbLD)} />
+    )}
   </head>
   <body>
     <!-- Background Elements -->
     <div class="bg-gradient"></div>
     <div class="grid-overlay"></div>
     <div id="crt" aria-hidden="true"></div>
+
+    {breadcrumbs && breadcrumbs.length > 1 && (
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+          <ol>
+            {breadcrumbs.map((crumb, i) => (
+              <li>
+                {i < breadcrumbs.length - 1 ? (
+                  <a href={crumb.url}>{crumb.name}</a>
+                ) : (
+                  <span aria-current="page">{crumb.name}</span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </nav>
+    )}
 
     <slot />
 
