@@ -796,12 +796,6 @@ nav {
   }
 }
 
-@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
-  .rabbit-icon {
-    top: 60px;
-  }
-}
-
 /* --- FOOTER --- */
 footer {
   background: var(--color-black);
@@ -887,6 +881,12 @@ footer {
 
 
 /* --- ANIMATIONS --- */
+@keyframes float-mobile {
+  0%   { transform: translateX(-50%) translateY(0px); }
+  50%  { transform: translateX(-50%) translateY(-8px); }
+  100% { transform: translateX(-50%) translateY(0px); }
+}
+
 @keyframes float {
   0% {
     transform: translateX(-50%) translateY(0px);
@@ -965,7 +965,9 @@ footer {
 
   .rabbit-icon {
     width: min(99px, 24.2vw);
-    top: 100px;
+    top: 80px;
+    animation-name: float-mobile;
+    animation-duration: 5s;
   }
 
   .text-center .section-subtitle {
