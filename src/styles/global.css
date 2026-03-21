@@ -49,6 +49,7 @@
 
 :root {
   --color-magenta: #D900FF;
+  --color-magenta-text: #E000FF;
   --color-white: #FFFFFF;
   --color-black: #000000;
   --color-dark-gray: #111111;
@@ -123,7 +124,7 @@ a {
 }
 
 .text-magenta {
-  color: var(--color-magenta);
+  color: var(--color-magenta-text);
   text-shadow: var(--glow-text);
 }
 
@@ -167,7 +168,7 @@ a {
 
 .btn-primary {
   background: var(--color-magenta);
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 .btn-primary:hover {
@@ -505,7 +506,7 @@ nav {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--color-magenta);
+  color: var(--color-magenta-text);
   border: 1px solid rgba(217, 0, 255, 0.45);
   padding: 3px 8px;
   border-radius: 2px;
@@ -533,7 +534,7 @@ nav {
 
 .info-label {
   display: block;
-  color: var(--color-magenta);
+  color: var(--color-magenta-text);
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
@@ -560,7 +561,7 @@ nav {
 .price {
   font-family: var(--font-head);
   font-size: 1.25rem;
-  color: var(--color-magenta);
+  color: var(--color-magenta-text);
 }
 
 /* --- UTILITIES --- */
