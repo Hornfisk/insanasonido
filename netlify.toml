@@ -1,5 +1,5 @@
 [build]
-  command = "astro build"
+  command = "npm run build"
   publish = "dist"
 
 [[edge_functions]]
